@@ -74,7 +74,7 @@ export function getMetricMetaInfo(metric) {
       type: 'steppers',
       getIcon: () => (
         <View style={[styles.iconContainer, { backgroundColor: red }]}>
-          <MaterialIcons name="directions-run" color={white} size={32} />
+          <MaterialCommunityIcons name="run" color={white} size={32} />
         </View>
       ),
     },
