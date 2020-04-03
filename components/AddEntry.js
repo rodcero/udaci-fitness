@@ -7,6 +7,7 @@ import {
   Platform,
 } from 'react-native';
 import { connect } from 'react-redux';
+import { Ionicons } from '@expo/vector-icons';
 
 import {
   getMetricMetaInfo,
@@ -17,7 +18,7 @@ import UdaciSlider from './UdaciSlider';
 import UdaciSteppers from './UdaciSteppers';
 import DateHeader from './DateHeader';
 import TextButton from './TextButton';
-import { addEntry } from '../actions';
+import { addEntry, submitEntry } from '../actions';
 import { purple, white } from '../utils/colors';
 
 function SubmitBtn({ onPress }) {
@@ -55,8 +56,6 @@ class AddEntry extends Component {
     this.setState(() => ({ run: 0, bike: 0, swim: 0, sleep: 0, eat: 0 }));
 
     // Navigate to home
-
-    submitEntry({ key, entry });
 
     // Clear local notification
   };
@@ -99,8 +98,6 @@ class AddEntry extends Component {
     );
 
     // Route to Home
-
-    removeEntry(key);
   };
 
   render() {
