@@ -7,7 +7,6 @@ import {
   timeToString,
   getDailyReminderValue,
 } from '../utils/helpers';
-import { getMetricMetaInfo, timeToString } from '../utils/helpers';
 import UdaciSlider from './UdaciSlider';
 import UdaciStepper from './UdaciStepper';
 import DateHeader from './DateHeader';
