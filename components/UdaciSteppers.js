@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-const UdaciStepper = ({ unit, value, onIncrement, onDecrement }) => {
+const UdaciSteppers = ({ unit, value, onIncrement, onDecrement }) => {
   return (
     <View>
       <Text>UdaciSteppers</Text>
@@ -22,4 +22,4 @@ const UdaciStepper = ({ unit, value, onIncrement, onDecrement }) => {
   );
 };
 
-export default UdaciStepper;
+export default UdaciSteppers;
