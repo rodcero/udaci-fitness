@@ -5,6 +5,7 @@ import { getMetricMetaInfo, timeToString } from '../utils/helpers';
 import UdaciSlider from './UdaciSlider';
 import UdaciStepper from './UdaciStepper';
 import DateHeader from './DateHeader';
+import TextButton from './TextButton';
 
 function SubmitBtn({ onPress }) {
   return (
@@ -28,7 +29,6 @@ export default class AddEntry extends Component {
     const entry = this.state;
 
     // Update Redux
-
     this.setState(() => ({ run: 0, bike: 0, swim: 0, sleep: 0, eat: 0 }));
 
     // Navigate to home
@@ -66,8 +66,30 @@ export default class AddEntry extends Component {
     this.setState(() => ({ [metric]: value }));
   };
 
+  reset = () => {
+    const key = timeToString();
+
+    // Update Redux
+
+    // Route to Home
+
+    // Update "DB"
+  };
+
   render() {
     const metaInfo = getMetricMetaInfo();
+
+    if (this.props.alreadyLogged) {
+      return (
+        <View>
+          <Ionicons name={'ios-happy-outline'} size={100} />
+          <Ionicons name={'ios-happy'} size={100} />
+          <Text>You already logged your information for today.</Text>
+          <TextButton onPress={this.reset}>Reset</TextButton>
+          <TextButton onPress={this.reset}>Reset</TextButton>
+        </View>
+      );
+    }
 
     return (
       <View>
