@@ -57,6 +57,8 @@ class AddEntry extends Component {
 
     // Navigate to home
 
+    submitEntry({ key, entry });
+
     // Clear local notification
   };
 
@@ -98,6 +100,8 @@ class AddEntry extends Component {
     );
 
     // Route to Home
+
+    removeEntry(key);
   };
 
   render() {
