@@ -122,3 +122,7 @@ export function getMetricMetaInfo(metric) {
 
   return typeof metric === 'undefined' ? info : info[metric];
 }
+
+export const getDailyReminderValue = () => ({
+  today: "👋 Don't forget to log your data today!",
+});
