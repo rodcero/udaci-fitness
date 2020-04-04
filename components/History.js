@@ -13,6 +13,7 @@ import { fetchCalendarResults } from '../utils/api';
 import UdaciFitnessCalendar from 'udacifitness-calendar';
 import { white } from '../utils/colors';
 import DateHeader from './DateHeader';
+import MetricCard from './MetricCard';
 import { AppLoading } from 'expo';
 
 class History extends Component {
@@ -43,7 +44,11 @@ class History extends Component {
           <Text style={styles.noDataText}>{today}</Text>
         </View>
       ) : (
-        <TouchableOpacity onPress={() => console.log('Pressed!')}>
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.navigate('EntryDetail', { entryId: key })
+          }
+        >
           <MetricCard date={formattedDate} metrics={metrics} />
         </TouchableOpacity>
       )}

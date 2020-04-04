@@ -18,7 +18,8 @@ import UdaciSlider from './UdaciSlider';
 import UdaciSteppers from './UdaciSteppers';
 import DateHeader from './DateHeader';
 import TextButton from './TextButton';
-import { addEntry, submitEntry } from '../actions';
+import { addEntry } from '../actions';
+import { submitEntry, removeEntry } from '../utils/api';
 import { purple, white } from '../utils/colors';
 
 function SubmitBtn({ onPress }) {
