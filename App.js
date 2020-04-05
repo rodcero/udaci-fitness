@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Platform, StatusBar } from 'react-native';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -15,6 +15,7 @@ import Live from './components/Live';
 import reducer from './reducers';
 import { purple, white } from './utils/colors';
 import { Constants } from 'expo';
+import { setLocalNotification } from './utils/helpers';
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
@@ -103,20 +104,25 @@ const TabNav = () => (
   </Tab.Navigator>
 );
 
-export default function App() {
-  return (
-    <Provider store={createStore(reducer)}>
-      <View style={styles.container}>
-        <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Tabs" component={TabNav} />
-            <Stack.Screen name="EntryDetail" component={EntryDetail} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </View>
-    </Provider>
-  );
+export default class App extends Component {
+  componentDidMount() {
+    setLocalNotification();
+  }
+  render() {
+    return (
+      <Provider store={createStore(reducer)}>
+        <View style={styles.container}>
+          <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="Tabs" component={TabNav} />
+              <Stack.Screen name="EntryDetail" component={EntryDetail} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </View>
+      </Provider>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
