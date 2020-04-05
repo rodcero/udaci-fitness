@@ -11,6 +11,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import History from './components/History';
 import EntryDetail from './components/EntryDetail';
 import AddEntry from './components/AddEntry';
+import Live from './components/Live';
 import reducer from './reducers';
 import { purple, white } from './utils/colors';
 import { Constants } from 'expo';
@@ -72,8 +73,33 @@ const Stack = createStackNavigator();
 
 const TabNav = () => (
   <Tab.Navigator>
-    <Tab.Screen name="Home" component={History} />
-    <Tab.Screen name="Settings" component={AddEntry} />
+    <Tab.Screen
+      name="Home"
+      component={History}
+      options={{
+        tabBarIcon: ({ color }) => (
+          <FontAwesome name="home" color={color} size={26} />
+        ),
+      }}
+    />
+    <Tab.Screen
+      name="Add Entry"
+      component={AddEntry}
+      options={{
+        tabBarIcon: ({ color }) => (
+          <Ionicons name="md-calendar" color={color} size={26} />
+        ),
+      }}
+    />
+    <Tab.Screen
+      name="Live"
+      component={Live}
+      options={{
+        tabBarIcon: ({ color }) => (
+          <Ionicons name="ios-speedometer" color={color} size={26} />
+        ),
+      }}
+    />
   </Tab.Navigator>
 );
 
